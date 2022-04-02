@@ -1,8 +1,18 @@
 import { FiChevronRight } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import axios from "axios";
-import { Stack, Box, Image, Text } from "@chakra-ui/react";
+import HelperLupaMeli from "@components/HelperLupaMeli";
+import {
+  Stack,
+  Box,
+  Image,
+  Text,
+  UnorderedList,
+  ListItem,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 
 export default function Search() {
   const router = useRouter();
@@ -18,6 +28,48 @@ export default function Search() {
 
   if (!data) {
     return <div />;
+  }
+
+  if (!data.paging.total) {
+    return (
+      <Box>
+        <Stack
+          alignItems="center"
+          bg="white"
+          borderRadius="md"
+          direction="row"
+          justifyContent="center"
+          maxW="container.lg"
+          mt="10"
+          mx="auto"
+          py="12"
+          spacing="20"
+        >
+          <HelperLupaMeli />
+          <Box>
+            <Text fontSize="24px" fontWeight="bold">
+              No hay publicaciones que coincidan con tu búsqueda.
+            </Text>
+            <UnorderedList fontWeight="thin">
+              <ListItem>
+                <b>Revisá la ortografía</b> de la palabra.
+              </ListItem>
+              <ListItem>
+                Utilizá <b>palabras más genéricas</b> o menos palabras.
+              </ListItem>
+              <ListItem>
+                <Link href="/">
+                  <a>
+                    <ChakraLink>Navegá por las categorías </ChakraLink>
+                  </a>
+                </Link>
+                para encontrar un producto similar
+              </ListItem>
+            </UnorderedList>
+          </Box>
+        </Stack>
+      </Box>
+    );
   }
 
   return (
@@ -74,26 +126,39 @@ export default function Search() {
       >
         {data.results.map((item: any) => (
           <Stack key={item.id} bg="white" direction="row" p="6">
-            <Stack h="160px" objectFit="contain" w="160px">
-              <Image
-                alt={item.title}
-                m="auto"
-                maxH="100%"
-                maxW="100%"
-                src={`https://http2.mlstatic.com/D_NQ_NP_${item.thumbnail_id}-V.webp`}
-              />
-            </Stack>
+            <Link href={`/product/${item.id}`}>
+              <a>
+                <Stack h="160px" objectFit="contain" w="160px">
+                  <Image
+                    alt={item.title}
+                    m="auto"
+                    maxH="100%"
+                    maxW="100%"
+                    src={`https://http2.mlstatic.com/D_NQ_NP_${item.thumbnail_id}-V.webp`}
+                  />
+                </Stack>
+              </a>
+            </Link>
             <Stack>
-              <Text fontSize="20px" fontWeight="thin">
-                {item.title}
-              </Text>
-              <Text fontSize="24px">
-                {item.price.toLocaleString("es-ar", {
-                  style: "currency",
-                  currency: "ARS",
-                  maximumFractionDigits: 0,
-                })}
-              </Text>
+              <Link href={`/product/${item.id}`}>
+                <a>
+                  <Text fontSize="20px" fontWeight="thin">
+                    {item.title}
+                  </Text>
+                </a>
+              </Link>
+
+              <Link href={`/product/${item.id}`}>
+                <a>
+                  <Text fontSize="24px">
+                    {item.price.toLocaleString("es-ar", {
+                      style: "currency",
+                      currency: "ARS",
+                      maximumFractionDigits: 0,
+                    })}
+                  </Text>
+                </a>
+              </Link>
               <Text color="whatsapp.600" fontSize="14px" fontWeight="bold">
                 {item.shipping.free_shipping ? "Envio gratis" : ""}
               </Text>
