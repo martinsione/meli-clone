@@ -4,6 +4,7 @@ import { BsCart2 } from "react-icons/bs";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import {
   Box,
   Container,
@@ -31,12 +32,16 @@ export default function Nav() {
           <Stack spacing={3}>
             <Stack direction="row" justifyContent="space-between">
               <Stack direction="row" flex={1} spacing={12}>
-                <Image
-                  height={34}
-                  objectFit="contain"
-                  src="/img/logo.png"
-                  width={134}
-                />
+                <Link href="/">
+                  <a>
+                    <Image
+                      height={34}
+                      objectFit="contain"
+                      src="/img/logo.png"
+                      width={134}
+                    />
+                  </a>
+                </Link>
                 <FormControl>
                   <form onSubmit={handleSubmit}>
                     <Stack
