@@ -25,6 +25,7 @@ export default function ImageContainer({
             objectFit="contain"
             w="44px"
             onClick={() => setActiveImage(picture.url)}
+            onMouseOver={() => setActiveImage(picture.url)}
           >
             <Image
               alt={picture.id}
