@@ -86,7 +86,9 @@ export default function Search() {
           minW="292"
         >
           {data.filters[0].values[0].path_from_root.map((filter: any) => (
-            <Text fontSize="14px">{filter.name} </Text>
+            <Text key={filter.id} fontSize="14px">
+              {filter.name}
+            </Text>
           ))}
         </Stack>
         <Stack alignItems="center" direction="row" spacing="0">
@@ -96,7 +98,9 @@ export default function Search() {
           <Select _focus={{ outline: "none" }} border="none" fontSize="14px">
             <option value={data.sort.id}>{data.sort.name}</option>
             {data.available_sorts.map((filter: any) => (
-              <option value={filter.id}>{filter.name}</option>
+              <option key={filter.id} value={filter.id}>
+                {filter.name}
+              </option>
             ))}
           </Select>
         </Stack>
