@@ -1,14 +1,10 @@
+// @ts-ignore
+import ReactImageZoom from "react-image-zoom";
 import { useState } from "react";
 import { Stack, Image } from "@chakra-ui/react";
 
-export default function ImageContainer({
-  activePicture,
-  pictures,
-}: {
-  activePicture: string;
-  pictures: any[];
-}) {
-  const [activeImage, setActiveImage] = useState<any>(activePicture || null);
+export default function ImageContainer({ pictures }: { pictures: any[] }) {
+  const [activeImage, setActiveImage] = useState<any>(pictures[0].url || null);
   return (
     <Stack direction="row">
       <Stack>
@@ -17,9 +13,8 @@ export default function ImageContainer({
             key={picture.id}
             _hover={{ borderColor: "blue.500", borderWidth: "2px" }}
             alignItems="center"
-            bg="white"
             border="1px"
-            borderColor="gray.300"
+            borderColor="blackAlpha.200"
             borderRadius="4px"
             h="44px"
             objectFit="contain"
@@ -38,13 +33,18 @@ export default function ImageContainer({
         ))}
       </Stack>
       <Stack
+        _hover={{ cursor: "zoom-in" }}
         alignItems="center"
-        h="478px"
         justifyContent="center"
-        p="30px"
-        w="378px"
+        p="20px"
       >
-        <Image src={activeImage} />
+        <ReactImageZoom
+          height={500}
+          img={activeImage}
+          scale={1.2}
+          width={500}
+          zoomWidth={300}
+        />
       </Stack>
     </Stack>
   );
