@@ -11,7 +11,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>My page title</title>
+        <title>Mercadolibre</title>
         <meta content="initial-scale=1.0, width=device-width" name="viewport" />
       </Head>
       <ChakraProvider theme={theme}>
