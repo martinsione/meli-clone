@@ -7,6 +7,7 @@ import theme from "../theme";
 import "../styles/globals.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  document.title = "Mercadolibre";
   return (
     <ChakraProvider theme={theme}>
       <Layout>

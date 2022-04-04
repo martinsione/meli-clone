@@ -1,0 +1,32 @@
+[
+  {
+    "img": "https://http2.mlstatic.com/D_Q_NP_986876-MLA49200891563_022022-AB.webp",
+    "price": 9999,
+    "discount": 25,
+    "free_shipping": true
+  },
+  {
+    "img": "https://http2.mlstatic.com/D_Q_NP_878981-MLA48808509840_012022-AB.webp",
+    "price": 47319,
+    "discount": 9,
+    "free_shipping": true
+  },
+  {
+    "img": "https://http2.mlstatic.com/D_Q_NP_986182-MLA49472314801_032022-AB.webp",
+    "price": 69871,
+    "discount": 60,
+    "free_shipping": true
+  },
+  {
+    "img": "https://http2.mlstatic.com/D_Q_NP_790133-MLA49183309923_022022-AB.webp",
+    "price": 41999,
+    "discount": 10,
+    "free_shipping": true
+  },
+  {
+    "img": "https://http2.mlstatic.com/D_Q_NP_754897-MLA44307668853_122020-AB.webp",
+    "price": 70999,
+    "discount": 6,
+    "free_shipping": true
+  }
+]
