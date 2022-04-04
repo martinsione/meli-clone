@@ -1,12 +1,10 @@
-// @ts-ignore
-import ReactImageZoom from "react-image-zoom";
 import { useState } from "react";
 import { Stack, Image } from "@chakra-ui/react";
 
 export default function ImageContainer({ pictures }: { pictures: any[] }) {
   const [activeImage, setActiveImage] = useState<any>(pictures[0].url || null);
   return (
-    <Stack direction="row">
+    <Stack direction="row" w="100%">
       <Stack>
         {pictures.map((picture: any) => (
           <Stack
@@ -32,20 +30,8 @@ export default function ImageContainer({ pictures }: { pictures: any[] }) {
           </Stack>
         ))}
       </Stack>
-      <Stack
-        _hover={{ cursor: "zoom-in" }}
-        alignItems="center"
-        justifyContent="center"
-        p="20px"
-        zIndex={9999}
-      >
-        <ReactImageZoom
-          height={500}
-          img={activeImage}
-          scale={1.2}
-          width={500}
-          zoomWidth={300}
-        />
+      <Stack _hover={{ cursor: "zoom-in" }} flex={1} mx="auto">
+        <Image mx="auto" src={activeImage} />
       </Stack>
     </Stack>
   );
