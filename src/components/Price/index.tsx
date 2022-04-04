@@ -4,6 +4,7 @@ import { BsTruck } from "react-icons/bs";
 import { BiTrophy } from "react-icons/bi";
 import { AiOutlineShop } from "react-icons/ai";
 import { useState } from "react";
+import formatPrice from "@lib/formatPrice";
 import {
   Heading,
   Icon,
@@ -24,14 +25,6 @@ interface Props {
   sold_quantity: number;
   title: string;
   reviews: any;
-}
-
-function formatPrice(price: number, locale = "es-ar", currency = "ARS") {
-  return price.toLocaleString(locale, {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 0,
-  });
 }
 
 export default function Price({

@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Stack, Image } from "@chakra-ui/react";
 
 export default function ImageContainer({ pictures }: { pictures: any[] }) {
   const [activeImage, setActiveImage] = useState<any>(pictures[0].url || null);
+  useEffect(() => {
+    setActiveImage(pictures[0].url);
+  }, [pictures]);
   return (
-    <Stack direction="row" w="100%">
+    <Stack direction="row" minH="600px" w="100%">
       <Stack>
         {pictures.map((picture: any) => (
           <Stack
@@ -30,7 +33,7 @@ export default function ImageContainer({ pictures }: { pictures: any[] }) {
           </Stack>
         ))}
       </Stack>
-      <Stack _hover={{ cursor: "zoom-in" }} flex={1} mx="auto">
+      <Stack _hover={{ cursor: "zoom-in" }} alignSelf="center" flex={1}>
         <Image mx="auto" src={activeImage} />
       </Stack>
     </Stack>
