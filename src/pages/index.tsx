@@ -2,7 +2,7 @@ import formatPrice from "@lib/formatPrice";
 import Carousel from "@components/Carousel";
 import { Stack, StackDivider, Text, Image } from "@chakra-ui/react";
 
-import mock from "./index.mock.json";
+import mock from "../mock/index.mock.json";
 
 export default function Home() {
   return (
