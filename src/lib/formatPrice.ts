@@ -6,6 +6,7 @@ export default function formatPrice(
   return price.toLocaleString(locale, {
     style: "currency",
     currency,
+    minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
 }
