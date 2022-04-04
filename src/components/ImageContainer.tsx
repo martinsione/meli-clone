@@ -37,6 +37,7 @@ export default function ImageContainer({ pictures }: { pictures: any[] }) {
         alignItems="center"
         justifyContent="center"
         p="20px"
+        zIndex={9999}
       >
         <ReactImageZoom
           height={500}
